@@ -1,32 +1,35 @@
 package tests;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
+import junit.framework.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
-import java.io.Reader;
-import java.util.*;
+import main.Reader;
 
-public class TestReader {
+public class TestReader{
 
     @Test
-    public void exampleOneReadsCorrectly(){
+    public void testExampleOneReadsCorrectly(){
 //      Tests reader reads descriptions correctly
-//        Reader reader = new Reader();
+        Reader reader = new Reader();
+        reader.readFile("example-1.fsm.txt");
+        List<ArrayList<String>> readerStates = reader.getStates();
         ArrayList<ArrayList<String>> states = new ArrayList<ArrayList<String>>();
 
         ArrayList<String> s1 = new ArrayList<String>();
         s1.add("1");
         s1.add("1");
-        s1.add("0");
+        s1.add("O");
         s1.add("2");
         states.add(s1);
 
         ArrayList<String> s2 = new ArrayList<String>();
         s2.add("1");
         s2.add("2");
-        s2.add("0");
+        s2.add("O");
         s2.add("4");
         states.add(s2);
 
@@ -40,7 +43,7 @@ public class TestReader {
         ArrayList<String> s4 = new ArrayList<String>();
         s4.add("2");
         s4.add("2");
-        s4.add("0");
+        s4.add("O");
         s4.add("3");
         states.add(s4);
 
@@ -53,7 +56,7 @@ public class TestReader {
 
         ArrayList<String> s6 = new ArrayList<String>();
         s6.add("3");
-        s6.add("3");
+        s6.add("2");
         s6.add("E");
         s6.add("2");
         states.add(s6);
@@ -61,7 +64,7 @@ public class TestReader {
         ArrayList<String> s7 = new ArrayList<String>();
         s7.add("4");
         s7.add("1");
-        s7.add("0");
+        s7.add("O");
         s7.add("3");
         states.add(s7);
 
@@ -76,9 +79,8 @@ public class TestReader {
             for (int j = 0; j < states.get(i).size(); j++) {
                 System.out.print(states.get(i).get(j) + " ");
             }
-            System.out.println();
         }
-        assertEquals("4", states.get(7).get(0), "State 4 item 1 must be \"4");
+        assertEquals(states, readerStates, "Not same");
 
 
     }
