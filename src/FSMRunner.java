@@ -28,7 +28,6 @@ public class FSMRunner {
                 return output;
             }
         }
-
         return output;
     }
 }

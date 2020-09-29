@@ -11,7 +11,6 @@ public class Description {
 
     public final String BAD_DESCRIPTION = "Bad description";
 
-
     public Description(List<ArrayList<String>> description){
         this.description = description;
 
@@ -25,7 +24,6 @@ public class Description {
             System.out.println(BAD_DESCRIPTION);
             System.exit(0);
         }
-
 
 //      removing duplicates
         validStatesSet.addAll(validStates);
@@ -83,7 +81,4 @@ public class Description {
     public ArrayList<String> get(int i){
         return description.get(i);
     }
-
-
-
 }
