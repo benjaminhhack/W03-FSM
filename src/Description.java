@@ -6,6 +6,7 @@ public class Description {
     public ArrayList<String> linkedStates = new ArrayList<String>();
     public Set<String> validStatesSet = new LinkedHashSet<>();
     public Set<String> acceptedInputsSet = new LinkedHashSet<>();
+    public Set<String> linkedStatesSet = new LinkedHashSet<>();
     public List<ArrayList<String>> description;
 
     public final String BAD_DESCRIPTION = "Bad description";
@@ -18,6 +19,7 @@ public class Description {
             for (ArrayList<String> strings : description) {
                 validStates.add(strings.get(0));
                 acceptedInputs.add(strings.get(1));
+                linkedStates.add(strings.get(3));
             }
         } catch (IndexOutOfBoundsException e) {
             System.out.println(BAD_DESCRIPTION);
@@ -28,12 +30,15 @@ public class Description {
 //      removing duplicates
         validStatesSet.addAll(validStates);
         acceptedInputsSet.addAll(acceptedInputs);
+        linkedStatesSet.addAll(linkedStates);
 
         validStates.clear();
         acceptedInputs.clear();
+        linkedStates.clear();
 
         validStates.addAll(validStatesSet);
         acceptedInputs.addAll(acceptedInputsSet);
+        linkedStates.addAll(linkedStatesSet);
 
 //      checks for bad description
         for (ArrayList<String> strings : description) {
@@ -45,10 +50,7 @@ public class Description {
                 System.out.println(BAD_DESCRIPTION);
                 System.exit(0);
             }
-            linkedStates.add(strings.get(3));
-        }
-        for (String state: linkedStates) {
-            if (!validStates.contains(state)){
+            if (!linkedStates.contains(strings.get(0))){
                 System.out.println(BAD_DESCRIPTION);
                 System.exit(0);
             }
