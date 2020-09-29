@@ -28,15 +28,15 @@ public class fsminterpreter{
             int i =0;
             String out = "";
             while (i < inputs.length){
-                out += fsmRunner.interpret(inputs[i]);
+                out = fsmRunner.interpret(inputs[i]);
                 if (out.contains(BAD_INPUT)) {
                     System.out.println(out);
                     System.exit(0);
                 }
+                System.out.println(out);
                 i++;
-
             }
-            System.out.println(out);
+
             System.exit(0);
 
         } catch
