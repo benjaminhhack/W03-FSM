@@ -35,7 +35,7 @@ public class TestDescription {
         * Tests all methods (constructor, getValidStates, getAcceptedInputs, getOptions,
         * size and get.
         */
-        reader.readFile("src/example-1.fsm");
+        reader.readFile("src/tests/example-1.fsm");
         readerStates = reader.getStates();
 
         description = new Description(readerStates);
@@ -75,7 +75,7 @@ public class TestDescription {
 
 
 
-        reader.readFile("src/wrong-line-size.fsm");
+        reader.readFile("wrong-line-size.fsm");
         readerStates = reader.getStates();
         description = new Description(readerStates);
 
@@ -92,7 +92,7 @@ public class TestDescription {
 
 
 
-        reader.readFile("src/wrong-state-move.fsm");
+        reader.readFile("wrong-state-move.fsm");
         readerStates = reader.getStates();
         description = new Description(readerStates);
 
