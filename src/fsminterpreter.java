@@ -37,6 +37,7 @@ public class fsminterpreter{
                 i++;
             }
             System.out.println(out);
+            System.exit(0);
 
         } catch
         (ArrayIndexOutOfBoundsException e) {
