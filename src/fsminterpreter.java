@@ -34,24 +34,20 @@ public class fsminterpreter{
             String [] inputs = inputString.split("");
 
             int i =0;
+            String out = "";
             while (i < inputs.length){
-                String out = fsmRunner.interpret(inputs[i]);
-                if (out.equals(BAD_INPUT)) {
-                    System.out.println(BAD_INPUT);
+                out += fsmRunner.interpret(inputs[i]);
+                if (out.contains(BAD_INPUT)) {
+                    System.out.println(out);
                     System.exit(0);
                 }
-                else{
-                    System.out.println(out);
-                    i++;
-                }
-
-
             }
+            System.out.println(out);
 
         } catch
         (ArrayIndexOutOfBoundsException e) {
 
-            System.out.println("Bad input");
+            System.out.println("Bad description");
             System.exit(0);
         }
         System.exit(0);
