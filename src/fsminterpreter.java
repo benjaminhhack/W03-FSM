@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class fsminterpreter{
 
@@ -20,7 +21,8 @@ public class fsminterpreter{
             FSMRunner fsmRunner = new FSMRunner(description, description.getValidStates().get(0));
 
 //          gets input and continually runs until 'exit' is passed to the scanner
-            String inputString = args[1];
+            Scanner sc = new Scanner(System.in);
+            String inputString = sc.nextLine();
             String [] inputs = inputString.split("");
 
             int i =0;
