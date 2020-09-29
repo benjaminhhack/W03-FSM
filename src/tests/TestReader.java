@@ -1,13 +1,11 @@
-package tests;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
-import junit.framework.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import main.Reader;
 
 public class TestReader{
 
@@ -15,7 +13,7 @@ public class TestReader{
     public void testExampleOneReadsCorrectly(){
 //      Tests reader reads descriptions correctly
         Reader reader = new Reader();
-        reader.readFile("example-1.fsm.txt");
+        reader.readFile("example-1.fsm");
         List<ArrayList<String>> readerStates = reader.getStates();
         ArrayList<ArrayList<String>> states = new ArrayList<ArrayList<String>>();
 

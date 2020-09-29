@@ -1,5 +1,3 @@
-package main;
-
 import java.util.*;
 
 public class Description {
@@ -8,6 +6,8 @@ public class Description {
     public Set<String> validStatesSet = new LinkedHashSet<>();
     public Set<String> acceptedInputsSet = new LinkedHashSet<>();
     public List<ArrayList<String>> description;
+
+    public final String BAD_DESCRIPTION = "Bad description";
 
 
     public Description(List<ArrayList<String>> description){
@@ -27,6 +27,18 @@ public class Description {
 
         validStates.addAll(validStatesSet);
         acceptedInputs.addAll(acceptedInputsSet);
+
+//          checks for bad description
+        for (ArrayList<String> strings : description) {
+            if (strings.size() != 4) {
+                System.out.println(BAD_DESCRIPTION);
+                System.exit(0);
+            }
+            if (!validStates.contains(strings.get(3))) {
+                System.out.println(BAD_DESCRIPTION);
+                System.exit(0);
+            }
+        }
 
         this.validStates = validStates;
         this.acceptedInputs = acceptedInputs;
@@ -48,6 +60,14 @@ public class Description {
             }
         }
         return options;
+    }
+    public int size(){
+        int size = description.size();
+        return size;
+    }
+    public ArrayList<String> get(int i){
+        ArrayList<String> line = description.get(i);
+         return line;
     }
 
 

@@ -1,9 +1,5 @@
-package main;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class FSMRunner {
 
@@ -24,13 +20,11 @@ public class FSMRunner {
     public String interpret(String input){
         output = BAD_INPUT;
         options = description.getOptions(currentState);
-        System.out.println(options);
-        System.out.println(options.size());
 
-        for (int i = 0; i < options.size(); i++){
-            if (options.get(i).get(1).equals(input)){
-                output = options.get(i).get(2);
-                currentState = options.get(i).get(3);
+        for (ArrayList<String> option : options) {
+            if (option.get(1).equals(input)) {
+                output = option.get(2);
+                currentState = option.get(3);
                 return output;
             }
         }

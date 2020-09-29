@@ -1,5 +1,3 @@
-package main;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -24,7 +22,7 @@ public class Reader {
     }
 
     //checks if file exists, and if so, reads the file and creates a hashset with the data
-    public List<ArrayList<String>> readFile(String filename) {
+    public void readFile(String filename) {
         //  String fileName = args[0]; //https://www.geeksforgeeks.org/file-class-in-java/
 
         try {
@@ -45,6 +43,5 @@ public class Reader {
             System.out.println("File can't be found");
             a.printStackTrace();
         }
-        return states;
     }
 }

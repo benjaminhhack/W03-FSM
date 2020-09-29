@@ -1,15 +1,12 @@
-package tests;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
-import junit.framework.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import main.Reader;
 
 public class TestFSMRunner {
 
