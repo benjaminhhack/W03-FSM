@@ -3,6 +3,7 @@ import java.util.*;
 public class Description {
     public ArrayList<String> validStates = new ArrayList<String>();
     public ArrayList<String> acceptedInputs = new ArrayList<String>();
+    public ArrayList<String> linkedStates = new ArrayList<String>();
     public Set<String> validStatesSet = new LinkedHashSet<>();
     public Set<String> acceptedInputsSet = new LinkedHashSet<>();
     public List<ArrayList<String>> description;
@@ -34,13 +35,20 @@ public class Description {
         validStates.addAll(validStatesSet);
         acceptedInputs.addAll(acceptedInputsSet);
 
-//          checks for bad description
+//      checks for bad description
         for (ArrayList<String> strings : description) {
             if (strings.size() != 4) {
                 System.out.println(BAD_DESCRIPTION);
                 System.exit(0);
             }
             if (!validStates.contains(strings.get(3))) {
+                System.out.println(BAD_DESCRIPTION);
+                System.exit(0);
+            }
+            linkedStates.add(strings.get(3));
+        }
+        for (String state: linkedStates) {
+            if (!validStates.contains(state)){
                 System.out.println(BAD_DESCRIPTION);
                 System.exit(0);
             }
@@ -60,20 +68,18 @@ public class Description {
     }
     public List<ArrayList<String>> getOptions(String currentState){
         List<ArrayList<String>> options = new ArrayList<ArrayList<String>>();
-        for (int i =0; i < description.size(); i++){
-            if (description.get(i).get(0).equals(currentState)){
-                options.add(description.get(i));
+        for (ArrayList<String> strings : description) {
+            if (strings.get(0).equals(currentState)) {
+                options.add(strings);
             }
         }
         return options;
     }
     public int size(){
-        int size = description.size();
-        return size;
+        return description.size();
     }
     public ArrayList<String> get(int i){
-        ArrayList<String> line = description.get(i);
-         return line;
+        return description.get(i);
     }
 
 
