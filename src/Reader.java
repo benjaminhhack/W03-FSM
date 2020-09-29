@@ -23,10 +23,9 @@ public class Reader {
 
     //checks if file exists, and if so, reads the file and creates a hashset with the data
     public void readFile(String filename) {
-        //  String fileName = args[0]; //https://www.geeksforgeeks.org/file-class-in-java/
 
         try {
-            File transitions = new File("src/" + filename);
+            File transitions = new File(filename);
             Scanner fileReader = new Scanner(transitions);
             while (fileReader.hasNextLine()) {
                 String [] line = fileReader.nextLine().split(" ");
@@ -42,6 +41,7 @@ public class Reader {
         } catch (FileNotFoundException a) {
             System.out.println("File can't be found");
             a.printStackTrace();
+            System.exit(0);
         }
     }
 }

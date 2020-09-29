@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -49,7 +50,7 @@ public class fsminterpreter{
 
         } catch
         (ArrayIndexOutOfBoundsException e) {
-            System.out.println();
+
             System.out.println("Bad input");
             System.exit(0);
         }
