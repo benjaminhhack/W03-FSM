@@ -34,6 +34,7 @@ public class fsminterpreter{
                     System.out.println(out);
                     System.exit(0);
                 }
+                i++;
             }
             System.out.println(out);
 
