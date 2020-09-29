@@ -1,7 +1,4 @@
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class fsminterpreter{
@@ -25,7 +22,6 @@ public class fsminterpreter{
 //          gets input and continually runs until 'exit' is passed to the scanner
             String inputString = args[1];
             String [] inputs = inputString.split("");
-            System.out.println(Arrays.toString(inputs));
 
             int i =0;
             String out = "";
@@ -35,9 +31,8 @@ public class fsminterpreter{
                     System.out.println(out);
                     System.exit(0);
                 }
-                System.out.println("Input: " + inputs[i]);
-                System.out.println("Output: " + fsmRunner.interpret(inputs[i]));
                 i++;
+
             }
             System.out.println(out);
             System.exit(0);
@@ -46,6 +41,7 @@ public class fsminterpreter{
         (ArrayIndexOutOfBoundsException e) {
 
             System.out.println(BAD_DESCRIPTION);
+            e.printStackTrace();
             System.exit(0);
         }
         System.exit(0);
