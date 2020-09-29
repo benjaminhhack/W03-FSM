@@ -13,10 +13,16 @@ public class Description {
     public Description(List<ArrayList<String>> description){
         this.description = description;
 
-        for (ArrayList<String> strings : description) {
-            validStates.add(strings.get(0));
-            acceptedInputs.add(strings.get(1));
+        try{
+            for (ArrayList<String> strings : description) {
+                validStates.add(strings.get(0));
+                acceptedInputs.add(strings.get(1));
+            }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(BAD_DESCRIPTION);
+            System.exit(0);
         }
+
 
 //      removing duplicates
         validStatesSet.addAll(validStates);
