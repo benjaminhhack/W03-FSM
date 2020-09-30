@@ -7,13 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class TestReader{
 
     @Test
     public void testExampleOneReadsCorrectly(){
 //      Tests reader reads descriptions correctly
         Reader reader = new Reader();
-        reader.readFile("example-1.fsm");
+        reader.readFile("./src/tests/example-1.fsm");
         List<ArrayList<String>> readerStates = reader.getStates();
         ArrayList<ArrayList<String>> states = new ArrayList<ArrayList<String>>();
 
@@ -73,11 +74,6 @@ public class TestReader{
         s8.add("1");
         states.add(s8);
 
-        for (int i = 0; i < states.size(); i++) {
-            for (int j = 0; j < states.get(i).size(); j++) {
-                System.out.print(states.get(i).get(j) + " ");
-            }
-        }
         assertEquals(states, readerStates, "Not same");
 
 

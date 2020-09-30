@@ -10,22 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestDescription {
-    Reader reader = null;
-    Description description = null;
-    List<ArrayList<String>> readerStates = null;
-
-    final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    PrintStream sysOut;
-
+    Reader reader;
+    Description description;
+    List<ArrayList<String>> readerStates;
 
     @BeforeEach
-    public void setup(){
-//        initialise reader
+    public void setUp(){
         reader = new Reader();
-
-//        set streams for catching console output
-        sysOut = System.out;
-        System.setOut(new PrintStream(outContent));
     }
 
     @Test
@@ -35,7 +26,7 @@ public class TestDescription {
         * Tests all methods (constructor, getValidStates, getAcceptedInputs, getOptions,
         * size and get.
         */
-        reader.readFile("src/tests/example-1.fsm");
+        reader.readFile("./src/tests/example-1.fsm");
         readerStates = reader.getStates();
 
         description = new Description(readerStates);
@@ -75,11 +66,11 @@ public class TestDescription {
 
 
 
-        reader.readFile("wrong-line-size.fsm");
+        reader.readFile("./src/tests/wrong-line-size.fsm");
         readerStates = reader.getStates();
         description = new Description(readerStates);
-
-        assertNull(description);
+//      catch standard output
+        assertNull(description.getValidStates());
 
     }
 
@@ -92,16 +83,12 @@ public class TestDescription {
 
 
 
-        reader.readFile("wrong-state-move.fsm");
+        reader.readFile("./src/tests/wrong-state-move.fsm");
         readerStates = reader.getStates();
         description = new Description(readerStates);
-
-        assertNull(description);
+//      catch standard output
+        assertNull(description.getValidStates());
 
     }
 
-    @After
-    public void restoreStreams(){
-        System.setOut(sysOut);
-    }
 }
